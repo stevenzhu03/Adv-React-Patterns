@@ -11,20 +11,25 @@ const initialState = {
 
 const withClapAnimation = (WrappedComponent) => {
   class WithClapAnimation extends Component {
+    animate = () => {
+      console.log("%c Animate", "background:yellow;color:black");
+    };
+
     render() {
-      return <WrappedComponent {...this.props} />;
+      return <WrappedComponent {...this.props} animate={this.animate} />;
     }
   }
 
   return WithClapAnimation;
 };
 
-const MediumClap = () => {
+const MediumClap = ({ animate }) => {
   const MAXIMUM_USER_CLAP = 50;
   const [clapState, setClapState] = useState(initialState);
   const { count, countTotal, isClicked } = clapState;
 
   const handleClapClick = () => {
+    animate();
     setClapState((prevState) => ({
       isClicked: true,
       count: Math.min(prevState.count + 1, MAXIMUM_USER_CLAP),
