@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import mojs from "mo-js";
 import styles from "./index.css";
 
@@ -14,6 +14,10 @@ const useClapAnimation = () => {
   const [animationTimeline, setAnimationTimeline] = useState(
     () => new mojs.Timeline()
   );
+
+  useEffect = () => {
+    //on mount, add animation timeline to the input
+  };
 };
 
 const withClapAnimation = (WrappedComponent) => {
