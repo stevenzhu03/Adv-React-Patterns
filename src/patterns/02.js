@@ -10,6 +10,12 @@ const initialState = {
 
 //Higher Order Component
 
+const useClapAnimation = () => {
+  const [animationTimeline, setAnimationTimeline] = useState(
+    () => new mojs.Timeline()
+  );
+};
+
 const withClapAnimation = (WrappedComponent) => {
   class WithClapAnimation extends Component {
     animationTimeline = new mojs.Timeline();
